@@ -1,0 +1,437 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: rgb(143, 232, 232);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+td {
+  text-align: left;
+}
+
+input::file-selector-button {
+  position: relative;
+  background-color: blue;
+  color: white;
+  border-radius: 15px 15px 15px 15px;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #037930;
+}
+
+button:hover {
+  background-color: #037930;
+}
+
+button {
+  position: relative;
+  background-color: blue;
+  color: white;
+  border-radius: 15px 15px 15px 15px;
+}
+
+/* ==============COMMON HEADER STYLE=================== */
+.qmHeader
+{
+  background-color:rgb(2, 2, 69);
+}
+
+#logo {
+  width: 480px;
+}
+:link
+{
+  color: rgb(143, 232, 232);
+  text-decoration: none;
+}
+
+:visited
+{
+  color: rgb(143, 232, 232);
+  text-decoration: none;
+}
+
+#qmH1 {
+  border-radius: 25px 25px 00px 00px;
+}
+
+#qmH2 {
+  border-radius: 0px 0px 25px 25px;
+  }
+
+div {
+  text-align: left;  
+}
+
+h1 {
+  font-size: 1.8em;
+  line-height: 0.8;
+  text-align: left;
+  color:rgb(2, 2, 69);
+}
+
+/* ========ARTIFACT DISPLAY STYLE========== */
+#artifactCont {
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 25px 25px 25px 25px; 
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#artifactT {
+  position: relative;
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 10px;
+  width: 435px;
+
+}
+
+#artifactEntry {
+  line-height: 1em;
+}
+
+#categorySel
+{
+  width: 123px;
+}
+
+#grid-artifacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center; 
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 25px 25px 25px 25px;
+  margin-top: 10px;
+}
+
+.artifactChild 
+        {
+        border-radius: 25px 25px 25px 25px;
+        margin-top: 5px;
+        margin-right: -35px;    
+        margin-left: 5px;        
+        margin-bottom: 5px;
+        }
+
+.artifactImage
+{
+  width: 200px;
+  border-radius: 25px 25px 25px 25px;
+}
+
+.artifactFAV
+{
+position: relative;
+bottom: -5px; 
+right: 50px;
+background-color: blue;
+color: white;
+border-radius: 15px 15px 15px 15px;
+}
+
+.artifactUpd
+{
+position: relative;
+bottom: -5px; 
+right: 255px;
+background-color: rgb(120, 81, 230);
+color: white;
+border-radius: 15px 15px 15px 15px;
+margin-right: -58px;
+}
+
+#thanks {
+  background-color: rgb(232, 250, 131);
+  border-radius: 5px 5px 5px 5px;
+  width: 260px;
+}
+
+#newPatt2 {
+  background-color: blue;
+  color: white;
+  border-radius: 15px 15px 15px 15px;
+  margin-left: 10px;
+}
+
+/* ========FAVORITES SUMMARY STYLE========== */
+#faveHeader {
+  display: block;
+  background-color: rgb(77, 77, 190);
+  border-radius: 25px 25px 00px 00px;
+  text-align: left;
+  color: white;
+}
+
+#grid-favorites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center; 
+  background-color: rgb(77, 77, 190);
+  border-radius: 0px 0px 25px 25px;
+  }
+
+.faveChild {
+  border-radius: 25px 25px 25px 25px;
+  margin-top: 5px;
+  margin-right: -35px;    
+  margin-left: 5px;        
+  margin-bottom: 20px;
+  }
+
+.faveImage {
+  width: 100px;
+  border-radius: 25px 25px 25px 25px;
+  }
+
+.faveTELL {
+  position: relative;
+  bottom: -15px; 
+  right: 70px;
+  background-color: rgb(255, 234, 4);
+  color: black;
+  border-radius: 15px 15px 15px 15px;  
+  }
+
+/* ========FAVORITES MANAGEMENT STYLE========== */
+
+.favCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center; 
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 25px 25px 25px 25px;
+  }
+
+.favOne {
+  margin-left: 5px; 
+  margin-right: 5px;
+  width:205px;
+  margin-top: -25px;  
+  margin-bottom: -55px;
+}
+
+.favHigh {
+  background-color: rgb(232, 250, 131);
+  display: inline-block;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.favName {
+  position: relative;
+  font-size: 14px;
+  top: 15px;
+  right: 5px;
+  text-align: right;
+}
+
+.favName2 {
+  position: relative;
+  font-size: 12px;
+  top: 15px;
+  right: 80px;
+  text-align: right;
+  margin-top: -30px;
+}
+
+.favDelete {
+  position: relative;
+  background-color: blue;
+  bottom: 35px;
+  left: 145px;
+  color: white;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.favFile {
+  position: relative;
+  font-size: 12px;
+  bottom: 45px;
+  right: 5px;
+  text-align: right;
+}
+
+/*======================WorkOrders=====================  */
+#workTop {
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 5px 5px 5px 5px;
+  margin-top: 10px;  
+}
+
+.workTitle {
+  font-size: 24px;
+  color:white;
+  font-style: italic;
+}
+
+#workContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center; 
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 25px 25px 25px 25px;
+  margin-top: 10px;
+}
+
+
+
+.workOne {
+  line-height: 1.2;
+  font-size: 14px;
+  border-radius: 15px 15px 15px 15px;
+  padding: 10px;
+  margin: 10px;
+  width: 330px;
+  height: 220px;
+}
+
+.workProps {
+ color: white;
+}
+
+.goWorkButton {
+  position: relative;
+  bottom: 220px; 
+  left: 290px;
+  background-color: rgb(255, 234, 4);
+  color: black;
+  border-radius: 15px 15px 15px 15px;  
+  }
+/*======================CustomerList=====================  */
+
+#allCust {
+  margin-top: 10px;
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 15px 15px 15px 15px;
+  font-size: 14px;
+}
+
+#allCust tr:nth-child(odd) {background: #82cfc8}
+#allCust tr:nth-child(even) {background: #95ece3}
+#allCust > thead > tr > th {
+  border-radius: 15px 15px 15px 15px;
+  background-color: blue;
+  color: white;
+}
+.navType {
+  color: blue;
+  text-decoration: underline;
+}
+/*======================Customer=====================  */
+#oneCust {
+  margin-top: 10px;
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 15px 15px 15px 15px;
+  font-size: 14px;
+}
+
+#oneCust > tbody > tr > td > input {
+  width: 200px;
+}
+
+.custButton {
+  background-color: blue;
+  color: white;
+  border-radius: 15px 15px 15px 15px;
+}
+/*===================Artifact===========================  */
+
+
+#oneArt {
+  margin-top: 10px;
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 15px 15px 15px 15px;
+  font-size: 14px;
+}
+
+#imgLimit {
+  width: 480px;
+}
+#imgNew {
+  text-align: left;
+}
+
+/*======================================================== */
+#oneWorkForm {
+margin-bottom: 10px;
+}
+
+#oneWork {
+  margin-top: 10px;
+  border: solid;
+  border-color: rgb(1, 1, 26);
+  border-width: 1px;
+  border-radius: 15px 15px 15px 15px;
+  font-size: 14px;
+}
+
+#oneWork > tbody > tr > td > input {
+  width: 200px;
+}
+
+#paid {
+  position: relative;
+  right: 97px;
+  top: 2px;
+}
+
+#woTop {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#newWOdate
+{
+position: relative;
+left: 110px;
+background-color: blue;
+color: white;
+border-radius: 15px 15px 15px 15px;
+}
+
+.bigImg {
+  width: 400px;
+  display: inline-block;
+}
+
+#patternSide {
+ display: inline-block;
+}
+
+.newStart {
+  display: inline-block;
+}
+
+.ownLine {
+  display: block;
+}
