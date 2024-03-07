@@ -9,12 +9,14 @@ import { EtsyPage } from "./etsy.taxonomy.page";
 
 import { TestPage } from "./test.page";
 
-export {ArtifactsPage, 
-        FavoritesPage, 
-        WorkOrdersPage, 
-        WorkOrderPage,
-        CustomerListPage, 
-        CustomerPage, 
-        ArtifactPage,
-        EtsyPage,
-        TestPage}
+export {
+  ArtifactsPage,
+  FavoritesPage,
+  WorkOrdersPage,
+  WorkOrderPage,
+  CustomerListPage,
+  CustomerPage,
+  ArtifactPage,
+  EtsyPage,
+  TestPage,
+};

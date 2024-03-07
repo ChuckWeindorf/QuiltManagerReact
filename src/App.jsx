@@ -1,13 +1,13 @@
 import './App.css';
 
 
-import { headerPresent } from './components/common';
+import { HeaderPresent } from './components/common';
 
 function App(props) 
   {
     return (
       <>
-      {headerPresent()}
+       <HeaderPresent/>
       </>
           )
     }
