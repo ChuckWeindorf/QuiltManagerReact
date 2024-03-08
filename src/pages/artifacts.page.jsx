@@ -90,7 +90,7 @@ function ArtifactsPage(props) {
             return (
               <div className="faveChild" key={index}>
                 <img
-                  src={`../../artifacts/${image.substring(
+                  src={`${import.meta.env.VITE_ARTIFACTPATH}/${image.substring(
                     0,
                     image.indexOf("|")
                   )}`}

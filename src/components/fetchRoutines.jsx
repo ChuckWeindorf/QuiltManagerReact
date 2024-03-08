@@ -138,7 +138,7 @@ async function putArtifact(objArtifact) {
  */
 async function saveArtifactImage(formData) {
   try {
-    //console.log("In FETCH" + formData);
+    //console.log(...formData);
     const response = await fetch(`${cstrServer}artifacts/upload`, {
       method: "POST",
       body: formData,

@@ -277,6 +277,7 @@ function WorkOrderPage() {
   function uploadTheFile(cstrCategory, cstrArtType, selectedFiles) {
     let tempImage = { uploadedImage: selectedFiles[0] };
     const formData = new FormData();
+    console.log(...formData);
     formData.append("file", tempImage.uploadedImage);
     formData.append("upload_preset", "uploadunsigned");
     formData.append("category", cstrCategory);
