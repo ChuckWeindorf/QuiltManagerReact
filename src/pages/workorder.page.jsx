@@ -11,7 +11,7 @@ import {
   saveArtifactImage,
 } from "../components/fetchRoutines";
 import { useLocation } from "react-router-dom";
-import { simpleDate } from "../components/common";
+import { ConditionalMenu, simpleDate } from "../components/common";
 
 function WorkOrderPage() {
   //After NAV from a location with workorders, focus on one workorder here
@@ -335,7 +335,8 @@ function WorkOrderPage() {
     return arrText;
   }
   return (
-    <>
+    <>      
+      <ConditionalMenu/>
       <form onSubmit={handleSubmit} id="oneWorkForm">
         <table id="oneWork">
           <thead></thead>

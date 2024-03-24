@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchFavorites, deleteFavorite } from "../components/fetchRoutines";
-import { simpleDate } from "../components/common";
+import { ConditionalMenu, simpleDate } from "../components/common";
 
 function FavoritesPage(props) {
   let [arrFavs, setArrFavs] = useState([]);
@@ -63,6 +63,7 @@ function FavoritesPage(props) {
   // console.log("screen refresh here", arrFavs);
   return (
     <>
+      <ConditionalMenu/>
       <h1>List of Guest Favorites</h1>
       <div className="favCont">
         <ShowFaves />

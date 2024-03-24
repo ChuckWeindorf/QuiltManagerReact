@@ -8,6 +8,7 @@ import {
 import { useLocation } from "react-router-dom";
 import { ShowWorks } from "./shared.workorder";
 import { NavLink } from "react-router-dom";
+import { ConditionalMenu } from "../components/common";
 
 function CustomerPage(props) {
   const objCust = {
@@ -139,6 +140,7 @@ function CustomerPage(props) {
 
   return (
     <>
+      <ConditionalMenu/>
       <form onSubmit={handleSubmit}>
         <table id="oneCust">
           <thead></thead>

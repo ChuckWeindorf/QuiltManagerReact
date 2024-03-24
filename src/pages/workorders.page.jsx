@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ShowWorks } from "./shared.workorder";
 import { fetchWorkorders } from "../components/fetchRoutines";
+import { ConditionalMenu } from "../components/common";
 
 function WorkOrdersPage(props) {
   let [arrWorks, setArrWorks] = useState([]);
@@ -19,6 +20,7 @@ function WorkOrdersPage(props) {
 
   return (
     <>
+      <ConditionalMenu/>
       <div id="workTop">
         <h1>&nbsp;Workorder Status</h1>
         <div id="workFilter">

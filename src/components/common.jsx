@@ -8,17 +8,24 @@ import {
   ArtifactPage,
   WorkOrderPage,
   EtsyPage,
+  LoginPage,
   TestPage,
 } from "../pages";
-
-let appMode = import.meta.env.VITE_APPMODE;
 
 /**
  *
  * @returns a T/F switch to limit the routes availabe to a Guest account.  Will be replaced by formal login later
  */
 function guestMode() {
-  return appMode == "Guest";
+  return !sessionStorage.getItem("OwnerMode");
+}
+
+/**
+ *
+ * @returns a T/F switch to limit the routes availabe to a Guest account.  Will be replaced by formal login later
+ */
+function setOwnerMode() {
+  sessionStorage.setItem("OwnerMode", "true");
 }
 
 // Routines for reuse on all pages
@@ -29,21 +36,26 @@ function guestMode() {
  *          options and NavLink menu choices
  */
 function HeaderPresent() {
+  //console.log("Guestmode " + guestMode());
   return (
     <>
+      <BrowserRouter>
       <div className="qmHeader" id="qmH1">
         <img src="../logo.png" id="logo" />
-      </div>
-      <BrowserRouter>
-        <div className="qmHeader" id="qmH2">
-          &nbsp;&nbsp;&nbsp;
-          <NavLink to="/">Pick a Pattern</NavLink>&nbsp;&nbsp;&nbsp;
-          {!guestMode() && conditionalNavLinks()}
+        {guestMode() && <NavLink to="/login" id="loginNav">Login&nbsp;&nbsp;&nbsp;</NavLink>}
         </div>
-        <Routes>
+      <Routes>
           <Route path="/" element={<ArtifactsPage />} />
-          {!guestMode() && conditionalRoutes()}
-        </Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/guestFavs" element={<FavoritesPage />} />
+          <Route path="/workorders" element={<WorkOrdersPage />} />
+          <Route path="/customers" element={<CustomerListPage />} />
+          <Route path="/customerpage" element={<CustomerPage />} />
+          <Route path="/artifact" element={<ArtifactPage />} />
+          <Route path="/workorder" element={<WorkOrderPage />} />
+          <Route path="/etsy" element={<EtsyPage />} />
+          <Route path="/test" element={<TestPage />} />
+      </Routes>
       </BrowserRouter>
     </>
   );
@@ -56,6 +68,7 @@ function HeaderPresent() {
 function conditionalNavLinks() {
   return (
     <>
+      <NavLink to="/">Pick a Pattern</NavLink>&nbsp;&nbsp;&nbsp;
       <NavLink to="/customers">Customers</NavLink>&nbsp;&nbsp;&nbsp;
       <NavLink to="/guestFavs">Guest Favorites</NavLink>&nbsp;&nbsp;&nbsp;
       <NavLink to="/workorders">WorkOrders</NavLink>&nbsp;&nbsp;&nbsp;
@@ -68,17 +81,13 @@ function conditionalNavLinks() {
  *
  * @returns the routes availabe for the owner session
  */
-function conditionalRoutes() {
+function ConditionalMenu() {
   return (
     <>
-      <Route path="/guestFavs" element={<FavoritesPage />} />
-      <Route path="/workorders" element={<WorkOrdersPage />} />
-      <Route path="/customers" element={<CustomerListPage />} />
-      <Route path="/customerpage" element={<CustomerPage />} />
-      <Route path="/artifact" element={<ArtifactPage />} />
-      <Route path="/workorder" element={<WorkOrderPage />} />
-      <Route path="/etsy" element={<EtsyPage />} />
-      <Route path="/test" element={<TestPage />} />
+        <div className="qmHeader" id="qmH2">
+          &nbsp;&nbsp;&nbsp;
+          {!guestMode() && conditionalNavLinks()}
+        </div>
     </>
   );
 }
@@ -123,4 +132,9 @@ function daysBetweenDates(datFrom, datTo) {
   return Difference_In_Days;
 }
 
-export { HeaderPresent, simpleDate, daysBetweenDates, guestMode };
+export { HeaderPresent, 
+         simpleDate, 
+         daysBetweenDates, 
+         guestMode, 
+         setOwnerMode, 
+         ConditionalMenu };

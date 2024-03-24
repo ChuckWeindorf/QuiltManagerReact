@@ -1,16 +1,16 @@
 import './App.css';
-
-
 import { HeaderPresent } from './components/common';
 
 function App(props) 
-  {
+  { 
     return (
-      <>
-       <HeaderPresent/>
-      </>
-          )
+  <>
+  <HeaderPresent/>
+ </>
+     )
     }
 
 export default App
+
+
 

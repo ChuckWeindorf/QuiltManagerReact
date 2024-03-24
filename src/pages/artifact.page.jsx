@@ -6,7 +6,7 @@ import {
   saveArtifactImage,
 } from "../components/fetchRoutines";
 import { useLocation } from "react-router-dom";
-import { simpleDate } from "../components/common";
+import { ConditionalMenu, simpleDate } from "../components/common";
 
 function ArtifactPage() {
   const objArtifact = {
@@ -140,6 +140,7 @@ function ArtifactPage() {
 
   return (
     <>
+      <ConditionalMenu/>
       <form onSubmit={handleSubmit}>
         <table id="oneArt">
           <thead></thead>

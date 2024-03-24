@@ -5,7 +5,7 @@ import {
   fetchArtifactList,
   postFavorite,
 } from "../components/fetchRoutines";
-import { guestMode } from "../components/common";
+import { guestMode, ConditionalMenu } from "../components/common";
 
 function ArtifactsPage(props) {
   let [arrCats, setCatArray] = useState([]);
@@ -25,6 +25,7 @@ function ArtifactsPage(props) {
   //-----Internal Function-----------------------------------------
   //Retrieve Image List of category for type Patterns
   async function fetchArtifacts(cstrCat) {
+    setArrImage([]);
     setvbolThanks(false);
     setcstrCategory(cstrCat);
     let tmpArr = await fetchArtifactList(cstrCat);
@@ -140,9 +141,10 @@ function ArtifactsPage(props) {
   //big HTML render
   return (
     <>
+      <ConditionalMenu />
       <div id="artifactCont">
         <h1>&nbsp;Browse Debbie's Pattern Catalog</h1>
-        {checkCat() && (
+        {!guestMode() && (
           <NavLink
             id="newPatt1"
             className="navType"

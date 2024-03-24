@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchEtsyTaxonomy } from "../components/fetchRoutines";
+import { ConditionalMenu } from "../components/common";
 
 function EtsyPage() {
   let [arrAll, setArrAll] = useState([]);
@@ -96,6 +97,7 @@ function EtsyPage() {
   }
   return (
     <>
+      <ConditionalMenu/>
       <h1>etsy Taxonomy</h1>
       <div>
         <button type="button" onClick={resetAll}>

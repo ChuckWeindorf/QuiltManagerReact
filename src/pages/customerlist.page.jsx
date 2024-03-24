@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchCustomers } from "../components/fetchRoutines";
 import { NavLink } from "react-router-dom";
+import { ConditionalMenu } from "../components/common";
 
 function CustomerListPage(props) {
   let [arrCust, setArrCust] = useState([]);
@@ -51,6 +52,7 @@ function CustomerListPage(props) {
   //console.log(arrCust);
   return (
     <>
+      <ConditionalMenu/>
       <table id="allCust">
         <thead>
           <tr>

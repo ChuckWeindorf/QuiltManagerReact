@@ -1,6 +1,8 @@
 import { simpleDate } from "./common";
 
 const cstrServer = import.meta.env.VITE_API;
+const cstrAPIkey = import.meta.env.VITE_API_KEY;
+const cobjHeader = {"qm-api-key": cstrAPIkey}; 
 
 /**
  *
@@ -9,7 +11,10 @@ const cstrServer = import.meta.env.VITE_API;
 async function fetchCategoryList() {
   try {
     //console.log(cstrServer);
-    const response = await fetch(`${cstrServer}artifacts/categories`);
+    const response = await fetch(`${cstrServer}artifacts/categories`, {
+      method: "GET",
+      headers: cobjHeader
+    });
     const data = await response.json();
     return data;
   } catch (err) {
@@ -24,9 +29,10 @@ async function fetchCategoryList() {
  */
 async function fetchArtifactList(cstrCategory) {
   try {
-    const response = await fetch(
-      `${cstrServer}artifacts/catList/${cstrCategory}`
-    );
+    const response = await fetch(`${cstrServer}artifacts/catList/${cstrCategory}`, {
+      method: "GET",
+      headers: cobjHeader
+    });
     const data = await response.json();
     return data;
   } catch (err) {
@@ -42,9 +48,10 @@ async function fetchArtifactList(cstrCategory) {
 async function fetchArtifactListbyWorkorder(cintID) {
   try {
     //console.log("try to get WO " + cintID)
-    const response = await fetch(
-      `${cstrServer}sales_artifacts/workorder/${cintID}`
-    );
+    const response = await fetch(`${cstrServer}sales_artifacts/workorder/${cintID}`, {
+      method: "GET",
+      headers: cobjHeader
+    });
     const data = await response.json();
     return data;
   } catch (err) {
@@ -63,7 +70,7 @@ async function postSalesArtifact(objImage) {
     const response = await fetch(`${cstrServer}sales_artifacts`, {
       method: "POST",
       body: objBody,
-      headers: { "Content-type": "application/json; charset=UTF-8" },
+      headers: cobjHeader
     });
     const data = await response.json();
     return data;
@@ -83,7 +90,10 @@ async function fetchArtifact(cstrArtID) {
     if (cstrArtID) {
       tmpPath += `/${cstrArtID}`;
     }
-    const response = await fetch(tmpPath);
+    const response = await fetch(tmpPath, {
+      method: "GET",
+      headers: cobjHeader
+    });
     const data = await response.json();
     return data;
   } catch (err) {
@@ -102,7 +112,7 @@ async function postArtifact(objArtifact) {
     const response = await fetch(`${cstrServer}artifacts`, {
       method: "POST",
       body: objBody,
-      headers: { "Content-type": "application/json; charset=UTF-8" },
+      headers: cobjHeader
     });
     const data = await response.json();
     return data;
@@ -122,9 +132,7 @@ async function putArtifact(objArtifact) {
     await fetch(`${cstrServer}artifacts/${objArtifact.ArtifactID}`, {
       method: "PUT",
       body: objBody,
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
+      headers: cobjHeader
     });
   } catch (err) {
     return err;
@@ -142,6 +150,7 @@ async function saveArtifactImage(formData) {
     const response = await fetch(`${cstrServer}artifacts/upload`, {
       method: "POST",
       body: formData,
+      headers: cobjHeader
     });
     const parsedResponse = await response.json();
     return parsedResponse;
@@ -156,7 +165,10 @@ async function saveArtifactImage(formData) {
  */
 async function fetchFavorites() {
   try {
-    const response = await fetch(`${cstrServer}favorites`);
+    const response = await fetch(`${cstrServer}favorites`, {
+      method: "GET",
+      headers: cobjHeader
+    });
     const data = await response.json();
     return data;
   } catch (err) {
@@ -182,7 +194,7 @@ async function postFavorite(cstrGuestName, cstrFileName, cintArtifactID) {
     await fetch(`${cstrServer}favorites`, {
       method: "POST",
       body: objBody,
-      headers: { "Content-type": "application/json; charset=UTF-8" },
+      headers: cobjHeader
     });
   } catch (err) {
     return err;
@@ -198,7 +210,7 @@ async function deleteFavorite(cintFavID) {
   try {
     await fetch(`${cstrServer}favorites/${cintFavID}`, {
       method: "DELETE",
-      headers: { "Content-type": "application/json; charset=UTF-8" },
+      headers: cobjHeader
     });
   } catch (err) {
     return err;
@@ -215,7 +227,10 @@ async function fetchWorkorders(cstrCustomerID) {
   if (cstrCustomerID) vstrPath = `/customer/${cstrCustomerID}`;
 
   try {
-    const response = await fetch(`${cstrServer}sales${vstrPath}`);
+    const response = await fetch(`${cstrServer}sales${vstrPath}`, {
+      method: "GET",
+      headers: cobjHeader
+    });
     const data = await response.json();
     return data;
   } catch (err) {
@@ -230,7 +245,10 @@ async function fetchWorkorders(cstrCustomerID) {
  */
 async function fetchOneWorkorder(cintSaleID) {
   try {
-    const response = await fetch(`${cstrServer}sales/${cintSaleID}`);
+    const response = await fetch(`${cstrServer}sales/${cintSaleID}`, {
+      method: "GET",
+      headers: cobjHeader
+    });
     const data = await response.json();
     return data;
   } catch (err) {
@@ -249,9 +267,7 @@ async function putWorkorder(objWork) {
     await fetch(`${cstrServer}sales/${objWork.SaleID}`, {
       method: "PUT",
       body: objBody,
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
+      headers: cobjHeader
     });
   } catch (err) {
     console.log(err);
@@ -270,9 +286,7 @@ async function postWorkorder(objWork) {
     const response = await fetch(`${cstrServer}sales`, {
       method: "POST",
       body: objBody,
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
+      headers: cobjHeader
     });
     const data = await response.json();
     //console.log(data);
@@ -294,7 +308,10 @@ async function fetchCustomers(cstrCustID) {
     if (cstrCustID) {
       tmpPath += `/${cstrCustID}`;
     }
-    const response = await fetch(tmpPath);
+    const response = await fetch(tmpPath, {
+      method: "GET",
+      headers: cobjHeader
+    });
     const data = await response.json();
     return data;
   } catch (err) {
@@ -313,9 +330,7 @@ async function putCustomer(objCust) {
     await fetch(`${cstrServer}customers/${objCust.CustomerID}`, {
       method: "PUT",
       body: objBody,
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
+      headers: cobjHeader
     });
   } catch (err) {
     return err;
@@ -333,9 +348,7 @@ async function postCustomer(objCust) {
     const response = await fetch(`${cstrServer}customers`, {
       method: "POST",
       body: objBody,
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
+      headers: cobjHeader
     });
     const data = await response.json();
     return data;
@@ -352,10 +365,34 @@ async function fetchEtsyTaxonomy() {
   try {
     let tmpPath = `${cstrServer}etsytaxonomy`;
     //console.log(tmpPath);
-    const response = await fetch(tmpPath);
+    const response = await fetch(tmpPath, {
+      method: "GET",
+      headers: cobjHeader
+    });
     const data = await response.json();
     return data;
   } catch (err) {
+    return err;
+  }
+}
+
+/**
+ *
+ * @returns The results of the API call for the seller category tree nodes for etsy
+ */
+async function checkLogin(cobjParams) {
+  try {
+    let encParams = btoa(`${cobjParams.login}: ${cobjParams.password}`);
+    //console.log(cobjParams);
+    //console.log(encParams);
+    const response = await fetch(`${cstrServer}login`, {
+      method: "GET",
+      headers: {'Authorization': encParams,
+                'qm-api-key': cstrAPIkey}
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) { console.log(err);
     return err;
   }
 }
@@ -380,4 +417,5 @@ export {
   fetchArtifact,
   saveArtifactImage,
   fetchEtsyTaxonomy,
+  checkLogin
 };

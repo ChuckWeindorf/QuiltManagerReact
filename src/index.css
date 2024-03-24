@@ -67,6 +67,11 @@ button {
   border-radius: 0px 0px 25px 25px;
   }
 
+#loginNav {
+  color: rgb(143, 232, 232);
+  float: right;
+}
+
 div {
   text-align: left;  
 }

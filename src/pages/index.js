@@ -6,6 +6,7 @@ import { WorkOrderPage } from "./workorder.page";
 import { CustomerListPage } from "./customerlist.page";
 import { CustomerPage } from "./customer.page";
 import { EtsyPage } from "./etsy.taxonomy.page";
+import { LoginPage } from "./login.page";
 
 import { TestPage } from "./test.page";
 
@@ -18,5 +19,6 @@ export {
   CustomerPage,
   ArtifactPage,
   EtsyPage,
+  LoginPage,
   TestPage,
 };
