@@ -2,7 +2,8 @@ import { simpleDate } from "./common";
 
 const cstrServer = import.meta.env.VITE_API;
 const cstrAPIkey = import.meta.env.VITE_API_KEY;
-const cobjHeader = {"qm-api-key": cstrAPIkey}; 
+const cobjHeader = {"qm-api-key": cstrAPIkey,                    
+                    "Content-type": "application/json; charset=UTF-8"};
 
 /**
  *
@@ -390,8 +391,7 @@ async function checkLogin(cobjParams) {
       headers: {'Authorization': encParams,
                 'qm-api-key': cstrAPIkey}
     });
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (err) { console.log(err);
     return err;
   }

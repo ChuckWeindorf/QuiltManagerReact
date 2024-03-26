@@ -4,12 +4,14 @@ import { ConditionalMenu } from "../components/common";
 
 function LoginPage() {
 
-        const handleSubmit = (e) => {
+        async function handleSubmit(e) {
             e.preventDefault();
             const data = new FormData(e.target);
             let objBody = {"login": data.get("login"),
                            "password": data.get("password")  };
-            if (checkLogin(objBody) )
+            let vtmpOz = await checkLogin(objBody);
+            //console.log(vtmpOz);
+            if (vtmpOz == "accepted")
                {
                setOwnerMode();
                navigation.navigate('/')
