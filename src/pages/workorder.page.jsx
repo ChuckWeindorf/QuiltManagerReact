@@ -304,7 +304,7 @@ function WorkOrderPage() {
       "Start Date",
       "Complete Date",
       "Target Date",
-      "Quote Amount",
+      "Amount",
     ];
     const carrV = [
       "Worktype",
@@ -402,8 +402,6 @@ function WorkOrderPage() {
           </div>
         </>
       )}
-      {images[0] && (
-        <>
           <div className="ownLine">
             <h2 className="newStart">Pictures from the Customer...</h2>
             &nbsp;&nbsp;&nbsp;
@@ -432,8 +430,6 @@ function WorkOrderPage() {
           <div>
             <FindProgressArt />
           </div>
-        </>
-      )}
     </>
   );
 }

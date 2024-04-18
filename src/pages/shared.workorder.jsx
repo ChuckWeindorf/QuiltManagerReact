@@ -69,7 +69,7 @@ function ShowWorks({ arrWorks, cstrStatus }) {
               key={`d${index}`}
               style={{ backgroundColor: GetBackground(work) }}
             >
-              <div className="workTitle">{work.LastName}</div>
+              <div className="workTitle">{work.LastName + ", " + work.FirstName}</div>
               <div className="workProps">
                 Workorder: {work.SaleID} <br />
                 Customer: {work.CustomerID}
@@ -90,7 +90,7 @@ function ShowWorks({ arrWorks, cstrStatus }) {
                 <br />
                 Paid: {work.Paid ? "Yes" : "No"}
                 <br />
-                QuoteAmount: {work.QuoteAmount}
+                Amount: {work.QuoteAmount}
               </div>
               <NavLink
                 className="navType"

@@ -2,8 +2,10 @@ import { simpleDate } from "./common";
 
 const cstrServer = import.meta.env.VITE_API;
 const cstrAPIkey = import.meta.env.VITE_API_KEY;
+const cstrServer2 = import.meta.env.VITE_API2;
 const cobjHeader = {"qm-api-key": cstrAPIkey,                    
                     "Content-type": "application/json; charset=UTF-8"};
+const cobjHeader2 = {"qm-api-key": cstrAPIkey};
 
 /**
  *
@@ -104,6 +106,22 @@ async function fetchArtifact(cstrArtID) {
 
 /**
  *
+ * @param {The key to the ArtifactID for one image} cstrArtID
+ * @returns 
+ */
+async function deleteArtifact(cstrArtID) {
+  try {
+    await fetch(`${cstrServer}artifacts/${cstrArtID}`, {
+      method: "DELETE",
+      headers: cobjHeader
+    });
+  } catch (err) {
+    return err;
+  }
+}
+
+/**
+ *
  * @param {A new image to be stored in the database with a path to the physical image} objImage
  * @returns the inserted ID that is the new ArtifactID in the artifacts table
  */
@@ -145,13 +163,13 @@ async function putArtifact(objArtifact) {
  * @param {This is the object for transferring the payload of the new image to Node} formData
  * @returns response
  */
-async function saveArtifactImage(formData) {
+async function saveArtifactImage(objArtifact) {
   try {
-    //console.log(...formData);
-    const response = await fetch(`${cstrServer}artifacts/upload`, {
+    //console.log(...objArtifact);
+    const response = await fetch(`${cstrServer2}/image`, {
       method: "POST",
-      body: formData,
-      headers: cobjHeader
+      body: objArtifact,
+      headers: cobjHeader2
     });
     const parsedResponse = await response.json();
     return parsedResponse;
@@ -159,7 +177,7 @@ async function saveArtifactImage(formData) {
     return err;
   }
 }
-
+//     
 /**
  *
  * @returns a list of all favorites send to the owner from guest accounts
@@ -414,6 +432,7 @@ export {
   postCustomer,
   postArtifact,
   putArtifact,
+  deleteArtifact,
   fetchArtifact,
   saveArtifactImage,
   fetchEtsyTaxonomy,

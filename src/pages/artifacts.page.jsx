@@ -144,7 +144,7 @@ function ArtifactsPage(props) {
       <ConditionalMenu />
       <div id="artifactCont">
         <h1>&nbsp;Browse Debbie's Pattern Catalog</h1>
-        {!guestMode() && (
+        {!guestMode() && (arrImage.length > 0) && (
           <NavLink
             id="newPatt1"
             className="navType"

@@ -4,8 +4,9 @@ import {
   putArtifact,
   fetchArtifact,
   saveArtifactImage,
+  deleteArtifact
 } from "../components/fetchRoutines";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ConditionalMenu, simpleDate } from "../components/common";
 
 function ArtifactPage() {
@@ -25,6 +26,7 @@ function ArtifactPage() {
   const [imgPattern, setImgPattern] = useState();
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const { navState } = location.state;
 
@@ -35,7 +37,8 @@ function ArtifactPage() {
       let localCategory = navState.substring(0, intSlash);
       // console.log(tmpID, localCategory);
       retrieveArtifact(tmpID);
-    } else {
+    } 
+    else {
       //NavState has the category only but no artifact ID - create new
       createArtifact();
     }
@@ -100,6 +103,17 @@ function ArtifactPage() {
     saveArtifact();
   }
 
+  // Save the artifact on submit
+  function deleteThisArtifact(e) {
+    e.preventDefault();
+    //Put fields back to database!
+    deleteArtifact(artifact.ArtifactID)
+      .then()
+      .catch((err) => console.error);
+      
+    navigate("/");
+  }
+
   function ShowArtifact() {
     let arrText = [];
     const carrT = ["ID", "Type", "Category", "Date Created", "File Name"];
@@ -147,7 +161,11 @@ function ArtifactPage() {
           <tbody>
             <ShowArtifact />
             <tr>
-              <td></td>
+              <td>
+                <button className="artButton" onClick={deleteThisArtifact}>
+                  DELETE
+                </button>
+              </td>
               <td>
                 <button className="artButton" type="submit">
                   Save Changes to Artifact
