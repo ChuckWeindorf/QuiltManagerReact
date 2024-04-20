@@ -173,6 +173,14 @@ function WorkOrderPage() {
       }
     });
   }
+  function PatternSelected() {
+    let vbol =  false;
+    images.map((image, index) => { 
+      if (image.ArtType == "Pattern") { 
+        vbol = true}
+      })
+    return(vbol);
+  };
 
   function FindCustomerArt() {
     return images.map((image, index) => {
@@ -277,7 +285,7 @@ function WorkOrderPage() {
   function uploadTheFile(cstrCategory, cstrArtType, selectedFiles) {
     let tempImage = { uploadedImage: selectedFiles[0] };
     const formData = new FormData();
-    console.log(...formData);
+    //console.log(...formData);
     formData.append("file", tempImage.uploadedImage);
     formData.append("upload_preset", "uploadunsigned");
     formData.append("category", cstrCategory);
@@ -382,17 +390,17 @@ function WorkOrderPage() {
           </tbody>
         </table>
       </form>
-      {images[0] && (
+      {PatternSelected() && (
+        <>
         <div className="ownLine">
           <h2 className="newStart">Pattern used...</h2>
         </div>
-      )}
-      {images[0] && (
         <div className="ownLine">
           <FindPattern />
         </div>
+        </>
       )}
-      {!images[0] && (
+      {!PatternSelected() && (
         <>
           <div id="faveHeader">
             &nbsp;&nbsp;&nbsp;Assign an available Favorite to this Workorder

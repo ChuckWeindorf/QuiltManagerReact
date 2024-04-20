@@ -171,9 +171,10 @@ async function saveArtifactImage(objArtifact) {
       body: objArtifact,
       headers: cobjHeader2
     });
+    //setTimeout(() => { console.log('1 second passed'); }, 1000);
     const parsedResponse = await response.json();
     return parsedResponse;
-  } catch (err) {
+  } catch (err) { console.log("image failed to post " + err);
     return err;
   }
 }
