@@ -25,7 +25,7 @@ function FavoritesPage(props) {
               <div className="favName">
                 <p className="favHigh">
                   {image.GuestName}&nbsp;&nbsp;
-                  {simpleDate(image.CreateDate, true)}
+                  {simpleDate(image.CreateDate, false)}
                 </p>
               </div>
               <img
